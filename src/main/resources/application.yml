@@ -1,0 +1,18 @@
+
+server:
+  port: 8760
+
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false #  \u9ED8\u8BA4\u4E3A true\u3002\u8BBE\u4E3A false\uFF0C\u4EC5\u4F5C\u4E3A\u670D\u52A1\u4E2D\u5FC3\uFF0C\u4E0D\u4F5C\u4E3A\u670D\u52A1\u5BA2\u6237\u7AEF\u3002
+    fetch-registry: false  # \u9ED8\u8BA4\u4E3Atrue\u3002\u8BBE\u4E3Afalse\uFF0C\u4E0D\u4ECE\u670D\u52A1\u4E2D\u5FC3\u68C0\u7D22\u6CE8\u518C\u7684\u670D\u52A1\u3002
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    eviction-interval-timer-in-ms: 5000 #\u6E05\u7406\u95F4\u9694\uFF08\u5355\u4F4D\u6BEB\u79D2\uFF0C\u9ED8\u8BA4\u662F60*1000)
+    enable-self-preservation: true #\u9ED8\u8BA4\u4E3Atrue\u3002\u8BBE\u4E3Afalse\uFF0C\u5173\u95ED\u81EA\u6211\u4FDD\u62A4
+      # Eureka Server \u5728\u8FD0\u884C\u671F\u95F4\u4F1A\u53BB\u7EDF\u8BA1\u5FC3\u8DF3\u5931\u8D25\u6BD4\u4F8B\u5728 15 \u5206\u949F\u4E4B\u5185\u662F\u5426\u4F4E\u4E8E 85%
+    renewal-percent-threshold: 0.1 # \u9ED8\u8BA4\u662F0.85
